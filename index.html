@@ -418,7 +418,7 @@
   <!-- Fluid Balance -->
   <div class="card">
     <div class="card-header">
-      <span class="card-title">💧 24h Fluid Balance Tracker</span>
+      <span class="card-title">💧Fluid Balance</span>
     </div>
     <div class="grid">
       <div class="form-group">
@@ -438,11 +438,11 @@
         <input id="urine" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
-        <label for="diarrhea">Diarrhea / Stool Output (mL)</label>
+        <label for="diarrhea">Motion(episode)</label>
         <input id="diarrhea" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
-        <label for="vomit">Vomiting / Drain Output (mL)</label>
+        <label for="vomit">Vomiting(episode)</label>
         <input id="vomit" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
@@ -577,25 +577,31 @@ function generateReport() {
   const balance = E("fluidbalance").value;
 
   const lines = [
-    `BMT CLINICAL INTIMATION REPORT`,
-    ``,
+    
     `👤 PATIENT PROFILE`,
-    `• Patient Name : ${name}`,
-    `• Age          : ${age}`,
-    `• Weight       : ${weight}`,
-    `• Date         : ${logDate}`,
-    `• Time         : ${logTime}`,
+    `• Patient Name  : ${name}`,
+    `• Age           : ${age}`,
+    `• Weight        : ${weight}`,
+    `• Date          : ${logDate}`,
+    `• Time          : ${logTime}`,
     ``,
     `🩺 VITAL SIGNS`,
-    `• Temp         : ${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}`,
-    `• Pulse        : ${pulse ? pulse + ' bpm' : '—'} | RR: ${rr ? rr + ' /min' : '—'}`,
-    `• BP           : ${bp ? bp + ' mmHg' : '—'} (MAP: ${map ? map + ' mmHg' : '—'})`,
-    `• SpO₂         : ${spo2 ? spo2 + ' %' : '—'}`,
+    `• Temp          : ${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}`,
+    `• Pulse         : ${pulse ? pulse + ' bpm' : '—'}`,
+    `• RR            : ${rr ? rr + ' /min' : '—'}`,
+    `• BP            : ${bp ? bp + ' mmHg' : '—'}`,
+    `• MAP           : ${map ? map + ' mmHg' : '—'}`,
+    `• SpO₂          : ${spo2 ? spo2 + ' %' : '—'}`,
     ``,
-    `💧 24H FLUID BALANCE`,
-    `• Total Intake : ${totalin ? totalin + ' mL' : '—'} (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)`,
-    `• Total Output : ${totalout ? totalout + ' mL' : '—'} (Urine: ${urine || 0} mL, Diarrhea: ${diarrhea || 0} mL, Vomit: ${vomit || 0} mL)`,
-    `• Net Balance  : ${balance ? balance + ' mL' : '—'}`
+    `💧 FLUID BALANCE`,
+    `• IV            : ${ivf || 0} mL`, 
+    `• Oral          : ${oral || 0} mL)`,
+    `• Total Intake  : ${totalin ? totalin + ' mL' : '—'}`,
+    `• Urine         : ${urine || 0} mL`,
+    `• Diarrhea      : ${diarrhea || 0}`,
+    `• Vomit         : ${vomit || 0} )`,
+    `• Total Output  : ${totalout ? totalout + ' mL' : '—'}`, 
+    `• fluid Balance : ${balance ? balance + ' mL' : '—'}`
   ];
 
   const reportText = lines.join("\n");
