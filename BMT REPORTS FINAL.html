@@ -343,7 +343,7 @@
   <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
   <div class="header-content">
     <h1>🩸 BMT REPORTS</h1>
-    <p>Clinical Suite & Instant Doctor Intimation</p>
+    <p>Clinical Monitoring Suite & Instant Doctor Intimation</p>
     <div id="greeting-bar">
       <span>⏱️</span> <span id="greeting-text">Good Day Doctor</span> | <span id="current-timestamp"></span>
     </div>
@@ -440,7 +440,7 @@
       </div>
     </div>
     <div id="engraftment-alert" class="alert-box badge-warning">
-      ℹ️ Severe Neutropenia (ANC &lt; 500). Track strictly for Neutropenic Fever.
+      ℹ️ Monitoring ANC &amp; Platelet count daily for engraftment day.
     </div>
   </div>
 
@@ -630,7 +630,7 @@ function updateCalculations() {
   } else {
     engBadge.textContent = "Awaiting Engraftment";
     engBadge.className = "badge badge-warning";
-    alertBox.textContent = "ℹ️ Tracking ANC & Platelet count daily for engraftment day.";
+    alertBox.textContent = "ℹ️ Monitoring ANC & Platelet count daily for engraftment day.";
     alertBox.className = "alert-box badge-warning";
   }
 

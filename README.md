@@ -1,6 +1,6 @@
 # 🩸 BMT REPORTS — Bone Marrow Transplant Clinical Suite & Intimation
 
-Production-grade, high-performance **Clinical Suite & Doctor Intimation System** specifically designed for **Bone Marrow Transplant (BMT) / Hematology-Oncology** units.
+Production-grade, high-performance **Clinical Monitoring Suite & Doctor Intimation System** specifically designed for **Bone Marrow Transplant (BMT) / Hematology-Oncology** units.
 
 ---
 
