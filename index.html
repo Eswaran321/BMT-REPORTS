@@ -554,29 +554,29 @@ function updateCalculations() {
 
 // Generate Text Report
 function generateReport() {
-  const name = E("name").value || "—";
-  const age = E("age").value || "—";
-  const weight = E("weight").value ? E("weight").value + " kg" : "—";
-  const logDate = E("log-date").value || "—";
-  const logTime = E("log-time").value || "—";
+  const name     = E("name").value     || "—";
+  const age      = E("age").value      || "—";
+  const weight   = E("weight").value ? E("weight").value + " kg" : "—";
+  const logDate  = E("log-date").value || "—";
+  const logTime  = E("log-time").value || "—";
 
-  const temp = E("temp").value;
-  const pulse = E("pulse").value;
-  const rr = E("rr").value;
-  const bp = E("bp").value;
-  const map = E("map").value;
-  const spo2 = E("spo2").value;
+  const temp     = E("temp").value;
+  const pulse    = E("pulse").value;
+  const rr       = E("rr").value;
+  const bp       = E("bp").value;
+  const map      = E("map").value;
+  const spo2     = E("spo2").value;
 
-  const ivf = E("ivf").value;
-  const oral = E("oral").value;
-  const totalin = E("totalin").value;
-  const urine = E("urine").value;
+  const ivf      = E("ivf").value;
+  const oral     = E("oral").value;
+  const totalin  = E("totalin").value;
+  const urine    = E("urine").value;
   const diarrhea = E("diarrhea").value;
-  const vomit = E("vomit").value;
+  const vomit    = E("vomit").value;
   const totalout = E("totalout").value;
-  const balance = E("fluidbalance").value;
+  const balance  = E("fluidbalance").value;
 
-  const lines = [
+  const lines    = [
     
     `👤 PATIENT PROFILE`,
     `• Patient Name  : ${name}`,

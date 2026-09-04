@@ -27,14 +27,11 @@ Production-grade, high-performance **Clinical Monitoring Suite & Doctor Intimati
 
 ---
 
-## 🚀 Live Access & Deployment Options
+## 🚀 Open the App
 
-### 1. Live Web Access (Local Server Running)
-Open in your browser right now:
-👉 `http://localhost:8080`
+- **Local server:** [http://localhost:8080](http://localhost:8080) (when running locally)
+- **Public website:** [https://eswaran321.github.io/BMT-REPORTS/](https://eswaran321.github.io/BMT-REPORTS/)
 
-### 2. GitHub Pages Deployment (Free Worldwide Access)
-The repository is deployed on branch `main` and `gh-pages`:
+The repository is deployed on branches `main` and `gh-pages`:
 - GitHub Repository: [Eswaran321/BMT-REPORTS](https://github.com/Eswaran321/BMT-REPORTS)
 - GitHub Pages Settings: [Pages Configuration](https://github.com/Eswaran321/BMT-REPORTS/settings/pages)
-- Live Site URL: **`https://eswaran321.github.io/BMT-REPORTS/`**
