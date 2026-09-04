@@ -415,39 +415,6 @@
     </div>
   </div>
 
-  <!-- Mucositis & GvHD Toxicity -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-title">⚠️ Mucositis & GvHD Toxicity Grading</span>
-    </div>
-    <div class="grid">
-      <div class="form-group">
-        <label for="mucositis">Oral Mucositis Grade</label>
-        <select id="mucositis">
-          <option value="Grade 0 (None)">Grade 0 — None</option>
-          <option value="Grade 1 (Painless Ulcers / Erythema)">Grade 1 — Erythema / Mild Ulcers</option>
-          <option value="Grade 2 (Painful Erythema, Soluble Diet)">Grade 2 — Ulcers, Can Swallow Solids</option>
-          <option value="Grade 3 (Liquid Diet Only)">Grade 3 — Liquid Diet Only</option>
-          <option value="Grade 4 (NPO / Alimentation Impossible)">Grade 4 — NPO / Severe Ulceration</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="gvhd-skin">Skin GvHD Grade</label>
-        <select id="gvhd-skin">
-          <option value="Stage 0 (No Rash)">Stage 0 — No Rash</option>
-          <option value="Stage 1 (&lt;25% BSA Rash)">Stage 1 — &lt;25% BSA Maculopapular Rash</option>
-          <option value="Stage 2 (25-50% BSA Rash)">Stage 2 — 25–50% BSA Rash</option>
-          <option value="Stage 3 (&gt;50% BSA Rash)">Stage 3 — &gt;50% BSA Erythroderma</option>
-          <option value="Stage 4 (Generalized Bullae)">Stage 4 — Generalized Bullae / Desquamation</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="gvhd-gi">GI GvHD / Diarrhea</label>
-        <input id="gvhd-gi" placeholder="e.g. 500 mL/day, Mild Cramping">
-      </div>
-    </div>
-  </div>
-
   <!-- Fluid Balance -->
   <div class="card">
     <div class="card-header">
@@ -602,10 +569,6 @@ function generateReport() {
   const map = E("map").value;
   const spo2 = E("spo2").value;
 
-  const mucositis = E("mucositis").value;
-  const gvhdSkin = E("gvhd-skin").value;
-  const gvhdGi = E("gvhd-gi").value;
-
   const ivf = E("ivf").value;
   const oral = E("oral").value;
   const totalin = E("totalin").value;
@@ -631,11 +594,6 @@ function generateReport() {
     `• Pulse: ${pulse ? pulse + ' bpm' : '—'} | RR: ${rr ? rr + ' /min' : '—'}`,
     `• BP: ${bp ? bp + ' mmHg' : '—'} (MAP: ${map ? map + ' mmHg' : '—'})`,
     `• SpO₂: ${spo2 ? spo2 + ' %' : '—'}`,
-    ``,
-    `*⚠️ TOXICITY GRADING*`,
-    `• Oral Mucositis: ${mucositis}`,
-    `• Skin GvHD: ${gvhdSkin}`,
-    `• GI Output/Diarrhea: ${gvhdGi || 'Nil'}`,
     ``,
     `*💧 24H FLUID BALANCE*`,
     `• Total Intake: ${totalin ? totalin + ' mL' : '—'} (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)`,

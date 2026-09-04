@@ -13,17 +13,12 @@ Production-grade, high-performance **Clinical Monitoring Suite & Doctor Intimati
    - Temperature (°F), Pulse Rate (bpm), Resp. Rate, Blood Pressure (mmHg), MAP (auto-calculated), $\text{SpO}_2$ (%).
    - **Auto-Risk Alert System**: Flags Neutropenic Fever ($\ge 100.4^\circ\text{F}$) and Hypoxia ($\text{SpO}_2 < 95\%$).
 
-3. ⚠️ **Toxicity & GvHD Grading**:
-   - WHO Oral Mucositis Grading (Grade 0–4).
-   - Acute Skin GvHD Staging (Stage 0–4 BSA rash).
-   - GI GvHD / Diarrhea output tracking.
-
-4. 💧 **24-Hour Fluid Balance**:
+3. 💧 **24-Hour Fluid Balance**:
    - Auto-summation of IV Fluid Intake + Oral Intake.
    - Summation of Urine + Diarrhea + Vomit/Drains.
    - Calculates Net 24h Fluid Balance (mL).
 
-5. 📤 **Multi-Format Export & Doctor Intimation**:
+4. 📤 **Multi-Format Export & Doctor Intimation**:
    - 💬 **WhatsApp Intimation**: Formatted with markdown emojis for direct messaging to attending consultants.
    - 📋 **Copy to Clipboard**: Quick copy for EMR/EHR clinical notes.
    - 🖨️ **Print / PDF Export**: Styled printable layout for physical patient charts.
