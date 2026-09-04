@@ -210,7 +210,7 @@
   .badge-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning); }
   .badge-success { background: var(--success-bg); color: var(--success); border: 1px solid var(--success); }
 
-  /* Engraftment Alert Box */
+  /* Alert Box */
   .alert-box {
     padding: 12px 16px;
     border-radius: 8px;
@@ -415,35 +415,6 @@
     </div>
   </div>
 
-  <!-- CBC & Engraftment Tracker -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-title">🧪 CBC & Engraftment Tracker</span>
-      <span id="engraftment-status" class="badge badge-warning">Awaiting Engraftment</span>
-    </div>
-    <div class="grid">
-      <div class="form-group">
-        <label for="wbc">WBC (x10³/µL)</label>
-        <input id="wbc" type="number" step="0.01" placeholder="e.g. 0.15">
-      </div>
-      <div class="form-group">
-        <label for="anc">ANC (cells/µL)</label>
-        <input id="anc" type="number" placeholder="e.g. 150">
-      </div>
-      <div class="form-group">
-        <label for="hb">Hemoglobin (g/dL)</label>
-        <input id="hb" type="number" step="0.1" placeholder="e.g. 8.4">
-      </div>
-      <div class="form-group">
-        <label for="plt">Platelets (x10³/µL)</label>
-        <input id="plt" type="number" placeholder="e.g. 24">
-      </div>
-    </div>
-    <div id="engraftment-alert" class="alert-box badge-warning">
-      ℹ️ Monitoring ANC &amp; Platelet count daily for engraftment day.
-    </div>
-  </div>
-
   <!-- Mucositis & GvHD Toxicity -->
   <div class="card">
     <div class="card-header">
@@ -611,29 +582,6 @@ function updateCalculations() {
     vitalsBadge.className = "badge badge-success";
   }
 
-  // Engraftment Checks
-  const anc = n("anc");
-  const plt = n("plt");
-  const engBadge = E("engraftment-status");
-  const alertBox = E("engraftment-alert");
-
-  if (anc >= 500 && plt >= 20) {
-    engBadge.textContent = "🎉 Engrafted (ANC ≥ 500 & Plt ≥ 20k)";
-    engBadge.className = "badge badge-success";
-    alertBox.textContent = "✅ Patient shows sustained Neutrophil & Platelet engraftment!";
-    alertBox.className = "alert-box badge-success";
-  } else if (anc < 500 && anc > 0) {
-    engBadge.textContent = "⚠️ Severe Neutropenia (ANC < 500)";
-    engBadge.className = "badge badge-danger";
-    alertBox.textContent = "🚨 Severe Neutropenia (ANC < 500). Risk for Neutropenic Fever!";
-    alertBox.className = "alert-box badge-danger";
-  } else {
-    engBadge.textContent = "Awaiting Engraftment";
-    engBadge.className = "badge badge-warning";
-    alertBox.textContent = "ℹ️ Monitoring ANC & Platelet count daily for engraftment day.";
-    alertBox.className = "alert-box badge-warning";
-  }
-
   generateReport();
 }
 
@@ -653,11 +601,6 @@ function generateReport() {
   const bp = E("bp").value;
   const map = E("map").value;
   const spo2 = E("spo2").value;
-
-  const wbc = E("wbc").value;
-  const anc = E("anc").value;
-  const hb = E("hb").value;
-  const plt = E("plt").value;
 
   const mucositis = E("mucositis").value;
   const gvhdSkin = E("gvhd-skin").value;
@@ -688,11 +631,6 @@ function generateReport() {
     `• Pulse: ${pulse ? pulse + ' bpm' : '—'} | RR: ${rr ? rr + ' /min' : '—'}`,
     `• BP: ${bp ? bp + ' mmHg' : '—'} (MAP: ${map ? map + ' mmHg' : '—'})`,
     `• SpO₂: ${spo2 ? spo2 + ' %' : '—'}`,
-    ``,
-    `*🧪 LABS & ENGRAFTMENT*`,
-    `• WBC: ${wbc ? wbc + ' x10³/µL' : '—'}`,
-    `• ANC: ${anc ? anc + ' cells/µL' + (parseFloat(anc) < 500 ? ' ⚠️ NEUTROPENIA' : '') : '—'}`,
-    `• Hb: ${hb ? hb + ' g/dL' : '—'} | Plt: ${plt ? plt + ' x10³/µL' : '—'}`,
     ``,
     `*⚠️ TOXICITY GRADING*`,
     `• Oral Mucositis: ${mucositis}`,

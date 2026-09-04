@@ -13,21 +13,17 @@ Production-grade, high-performance **Clinical Monitoring Suite & Doctor Intimati
    - Temperature (°F), Pulse Rate (bpm), Resp. Rate, Blood Pressure (mmHg), MAP (auto-calculated), $\text{SpO}_2$ (%).
    - **Auto-Risk Alert System**: Flags Neutropenic Fever ($\ge 100.4^\circ\text{F}$) and Hypoxia ($\text{SpO}_2 < 95\%$).
 
-3. 🧪 **CBC & Engraftment Tracker**:
-   - Tracks WBC, ANC (cells/µL), Hemoglobin (g/dL), Platelets ($\times 10^3/\mu\text{L}$).
-   - **Auto-Engraftment Detector**: Detects criteria for neutrophil engraftment ($\text{ANC} \ge 500$) and platelet engraftment ($\text{Plt} \ge 20\text{k}$).
-
-4. ⚠️ **Toxicity & GvHD Grading**:
+3. ⚠️ **Toxicity & GvHD Grading**:
    - WHO Oral Mucositis Grading (Grade 0–4).
    - Acute Skin GvHD Staging (Stage 0–4 BSA rash).
    - GI GvHD / Diarrhea output tracking.
 
-5. 💧 **24-Hour Fluid Balance**:
+4. 💧 **24-Hour Fluid Balance**:
    - Auto-summation of IV Fluid Intake + Oral Intake.
    - Summation of Urine + Diarrhea + Vomit/Drains.
    - Calculates Net 24h Fluid Balance (mL).
 
-6. 📤 **Multi-Format Export & Doctor Intimation**:
+5. 📤 **Multi-Format Export & Doctor Intimation**:
    - 💬 **WhatsApp Intimation**: Formatted with markdown emojis for direct messaging to attending consultants.
    - 📋 **Copy to Clipboard**: Quick copy for EMR/EHR clinical notes.
    - 🖨️ **Print / PDF Export**: Styled printable layout for physical patient charts.
