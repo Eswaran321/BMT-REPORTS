@@ -367,15 +367,6 @@
         <input id="age" placeholder="e.g. 34 yrs">
       </div>
       <div class="form-group">
-        <label for="gender">Gender</label>
-        <select id="gender">
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="form-group">
         <label for="weight">Weight (kg)</label>
         <input id="weight" type="number" step="0.1" placeholder="e.g. 62.5">
       </div>
@@ -663,7 +654,6 @@ function generateReport() {
   
   const name = E("name").value || "—";
   const age = E("age").value || "—";
-  const gender = E("gender").value || "—";
   const weight = E("weight").value ? E("weight").value + " kg" : "—";
   const logDate = E("log-date").value || "—";
   const logTime = E("log-time").value || "—";
@@ -700,7 +690,7 @@ function generateReport() {
     ``,
     `*👤 PATIENT PROFILE*`,
     `• Patient Name: *${name}*`,
-    `• Age: ${age} | Gender: ${gender}`,
+    `• Age: ${age}`,
     `• Weight: ${weight}`,
     `• Date: ${logDate}`,
     `• Time: ${logTime}`,
