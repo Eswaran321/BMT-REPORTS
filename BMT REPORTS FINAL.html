@@ -590,14 +590,14 @@ function generateReport() {
     `• Time: ${logTime}`,
     ``,
     `*🩺 VITAL SIGNS*`,
-    `• Temp: ${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}`,
+    `• Temp: *${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}*`,
     `• Pulse: ${pulse ? pulse + ' bpm' : '—'} | RR: ${rr ? rr + ' /min' : '—'}`,
     `• BP: ${bp ? bp + ' mmHg' : '—'} (MAP: ${map ? map + ' mmHg' : '—'})`,
     `• SpO₂: ${spo2 ? spo2 + ' %' : '—'}`,
     ``,
     `*💧 24H FLUID BALANCE*`,
-    `• Total Intake: ${totalin ? totalin + ' mL' : '—'} (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)`,
-    `• Total Output: ${totalout ? totalout + ' mL' : '—'} (Urine: ${urine || 0} mL, Diarrhea: ${diarrhea || 0} mL, Vomit: ${vomit || 0} mL)`,
+    `• Total Intake: *${totalin ? totalin + ' mL' : '—'}* (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)`,
+    `• Total Output: *${totalout ? totalout + ' mL' : '—'}* (Urine: ${urine || 0} mL, Diarrhea: ${diarrhea || 0} mL, Vomit: ${vomit || 0} mL)`,
     `• Net Balance: *${balance ? balance + ' mL' : '—'}*`
   ];
 
