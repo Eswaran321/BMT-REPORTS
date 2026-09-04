@@ -3,94 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#075985">
-<title>BMT REPORTS — Clinical Monitoring & Doctor Intimation</title>
+<meta name="theme-color" content="#0284c7">
+<title>BMT REPORTS — Bone Marrow Transplant Clinical Suite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #075985;
-    --primary-hover: #0369a1;
-    --bg-main: #f1f5f9;
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --primary-light: #e0f2fe;
+    --bg-page: #f8fafc;
     --card-bg: #ffffff;
     --text-main: #0f172a;
-    --text-muted: #475569;
-    --border-color: #cbd5e1;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
     --success: #16a34a;
-    --success-hover: #15803d;
+    --success-bg: #f0fdf4;
+    --warning: #d97706;
+    --warning-bg: #fffbeb;
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
     --whatsapp: #25d366;
     --whatsapp-hover: #1da851;
-    --danger: #dc2626;
+    --radius: 12px;
   }
 
-  * { box-sizing: border-box; }
-  
+  [data-theme="dark"] {
+    --bg-page: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --primary-light: #1e3a8a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
-    margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg-main);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-page);
     color: var(--text-main);
     line-height: 1.5;
+    padding-bottom: 60px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
+  /* Header */
   header {
-    background: linear-gradient(135deg, #075985 0%, #0c4a6e 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #0f172a 100%);
     color: #ffffff;
+    padding: 24px 20px;
     text-align: center;
-    padding: 24px 16px;
-    box-shadow: 0 4px 12px rgba(7, 89, 133, 0.15);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(2, 132, 199, 0.2);
+  }
+
+  .header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   header h1 {
-    margin: 0;
     font-size: 28px;
     font-weight: 700;
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   header p {
-    margin: 6px 0 0;
     font-size: 14px;
     opacity: 0.9;
+    margin-top: 4px;
   }
 
-  #greeting {
-    font-size: 15px;
-    font-weight: 600;
+  #greeting-bar {
     margin-top: 10px;
-    color: #bae6fd;
-  }
-
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-
-  .box {
-    background: var(--card-bg);
-    margin: 16px 0;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    border: 1px solid #e2e8f0;
-  }
-
-  h2 {
-    font-size: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
     font-weight: 600;
-    color: var(--primary);
-    margin: 0 0 16px;
-    display: flex;
+    color: #e0f2fe;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
   }
 
+  .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(5px);
+  }
+
+  /* Main layout */
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 20px 16px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
   }
 
   .form-group {
@@ -99,392 +161,716 @@
   }
 
   label {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     color: var(--text-muted);
     margin-bottom: 6px;
   }
 
-  input {
+  input, select, textarea {
     width: 100%;
     padding: 11px 14px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 14px;
+    font-family: inherit;
     color: var(--text-main);
-    background: #f8fafc;
+    background: var(--bg-page);
     transition: all 0.2s ease;
   }
 
-  input:focus {
+  input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--primary);
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(7, 89, 133, 0.15);
+    background: var(--card-bg);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
   }
 
   input[readonly] {
-    background: #e2e8f0;
-    color: #334155;
-    font-weight: 600;
+    background: var(--border-color);
+    opacity: 0.85;
+    font-weight: 700;
     cursor: not-allowed;
   }
 
-  .buttons {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 20px 0;
+  /* Status Badge Badges */
+  .badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
-  button {
-    padding: 14px 18px;
-    border: 0;
-    border-radius: 10px;
+  .badge-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger); }
+  .badge-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning); }
+  .badge-success { background: var(--success-bg); color: var(--success); border: 1px solid var(--success); }
+
+  /* Engraftment Alert Box */
+  .alert-box {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
     font-weight: 600;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Action Buttons Grid */
+  .action-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  button.btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
     font-size: 15px;
+    font-family: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
   }
 
-  button:active {
-    transform: scale(0.98);
-  }
+  button.btn:active { transform: scale(0.97); }
 
-  .copy {
-    background: var(--success);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
-  }
-  .copy:hover { background: var(--success-hover); }
-
-  .whatsapp {
+  .btn-whatsapp {
     background: var(--whatsapp);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
   }
-  .whatsapp:hover { background: var(--whatsapp-hover); }
+  .btn-whatsapp:hover { background: var(--whatsapp-hover); }
 
-  .clear {
+  .btn-copy {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+  }
+  .btn-copy:hover { background: var(--primary-dark); }
+
+  .btn-print {
+    background: #475569;
+    color: #ffffff;
+  }
+  .btn-print:hover { background: #334155; }
+
+  .btn-clear {
     background: #e2e8f0;
     color: #475569;
   }
-  .clear:hover { background: #cbd5e1; }
+  .btn-clear:hover { background: #cbd5e1; }
 
-  #report {
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
+  /* Output Preview Area */
+  #report-preview {
+    background: #0f172a;
+    color: #38bdf8;
+    border: 1px solid #1e293b;
     border-radius: 10px;
-    padding: 18px;
-    white-space: pre-wrap;
-    line-height: 1.6;
-    min-height: 240px;
-    font-size: 14px;
+    padding: 20px;
     font-family: 'JetBrains Mono', monospace;
-    color: #0c4a6e;
+    font-size: 13.5px;
+    line-height: 1.65;
+    white-space: pre-wrap;
     user-select: all;
+    min-height: 320px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
-  .status {
+  .status-toast {
     text-align: center;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--success);
-    margin-top: 10px;
-    min-height: 20px;
+    margin-top: 12px;
+    min-height: 24px;
   }
 
-  @media(max-width: 600px) {
-    .grid { grid-template-columns: 1fr; }
-    .buttons { grid-template-columns: 1fr; }
+  /* History Drawer / Saved Records */
+  .history-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+  }
+
+  .history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  .history-item button {
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Print Stylesheet */
+  @media print {
+    header, .action-bar, .theme-toggle, .history-card { display: none !important; }
+    body { background: #fff; color: #000; padding: 0; }
+    main { max-width: 100%; padding: 0; }
+    .card { border: none; box-shadow: none; padding: 10px 0; margin-bottom: 10px; }
+    #report-preview { background: #fff; color: #000; border: 1px solid #ccc; }
   }
 </style>
 </head>
-<body>
+<body data-theme="light">
 
 <header>
-  <h1>BMT REPORTS</h1>
-  <p>Clinical Monitoring & Doctor Intimation</p>
-  <div id="greeting">Good Morning</div>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
+  <div class="header-content">
+    <h1>🩸 BMT REPORTS</h1>
+    <p>Bone Marrow Transplant Clinical Suite & Instant Doctor Intimation</p>
+    <div id="greeting-bar">
+      <span>⏱️</span> <span id="greeting-text">Good Day Doctor</span> | <span id="current-timestamp"></span>
+    </div>
+  </div>
 </header>
 
 <main>
-  <!-- Patient Details -->
-  <div class="box">
-    <h2>📋 Patient Details</h2>
+
+  <!-- Patient & Transplant Info -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">👤 Patient & Transplant Profile</span>
+      <span id="bmt-day-badge" class="badge badge-success">Day +0</span>
+    </div>
     <div class="grid">
       <div class="form-group">
         <label for="name">Patient Name</label>
-        <input id="name" placeholder="Enter patient name">
+        <input id="name" placeholder="e.g. John Doe">
       </div>
       <div class="form-group">
-        <label for="Age">Age</label>
-        <input id="Age" placeholder="e.g. 45 yrs">
+        <label for="mrn">UHID / MRN</label>
+        <input id="mrn" placeholder="e.g. BMT-2026-889">
       </div>
       <div class="form-group">
-        <label for="Weight">Weight (Kg)</label>
-        <input id="Weight" placeholder="e.g. 65 Kg">
+        <label for="age">Age / Gender</label>
+        <input id="age" placeholder="e.g. 34Y / Male">
       </div>
       <div class="form-group">
-        <label for="date">Date</label>
-        <input id="date" type="date">
+        <label for="weight">Weight (kg)</label>
+        <input id="weight" type="number" step="0.1" placeholder="e.g. 62.5">
       </div>
       <div class="form-group">
-        <label for="time">Time</label>
-        <input id="time" type="time">
+        <label for="bmt-date">Transplant Date (Day 0)</label>
+        <input id="bmt-date" type="date">
+      </div>
+      <div class="form-group">
+        <label for="log-date">Report Date & Time</label>
+        <div style="display:flex; gap:8px;">
+          <input id="log-date" type="date">
+          <input id="log-time" type="time">
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Vital Signs -->
-  <div class="box">
-    <h2>🩺 Vital Signs</h2>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">🩺 Vital Signs & Monitoring</span>
+      <span id="vitals-alert-badge" class="badge badge-success">Vitals Normal</span>
+    </div>
     <div class="grid">
       <div class="form-group">
         <label for="temp">Temperature (°F)</label>
-        <input id="temp" type="number" min="1" max="200" step="0.1" placeholder="98.6 °F">
+        <input id="temp" type="number" step="0.1" placeholder="98.6">
       </div>
       <div class="form-group">
-        <label for="pulse">Pulse Rate (beats/min)</label>
-        <input id="pulse" type="number" step="0.1" placeholder="72 beats/min">
+        <label for="pulse">Pulse Rate (bpm)</label>
+        <input id="pulse" type="number" placeholder="72">
       </div>
       <div class="form-group">
-        <label for="rr">Respiratory Rate (breaths/min)</label>
-        <input id="rr" type="number" step="0.1" placeholder="16 breaths/min">
+        <label for="rr">Resp. Rate (breaths/min)</label>
+        <input id="rr" type="number" placeholder="16">
       </div>
       <div class="form-group">
-        <label for="bp">BP (mmHg)</label>
-        <input id="bp" type="text" placeholder="120/80 mmHg">
+        <label for="bp">Blood Pressure (mmHg)</label>
+        <input id="bp" placeholder="120/80">
       </div>
       <div class="form-group">
-        <label for="map">MAP (mmHg)</label>
-        <input id="map" type="number" step="0.1" placeholder="93 mmHg">
+        <label for="map">Calculated MAP (mmHg)</label>
+        <input id="map" type="number" step="0.1" placeholder="93.3">
       </div>
       <div class="form-group">
         <label for="spo2">SpO₂ (%)</label>
-        <input id="spo2" type="number" min="0" max="100" step="0.1" placeholder="98 %">
+        <input id="spo2" type="number" step="0.1" placeholder="98">
+      </div>
+      <div class="form-group">
+        <label for="o2support">Oxygen Support</label>
+        <select id="o2support">
+          <option value="Room Air">Room Air</option>
+          <option value="Nasal Cannula (1-2 L/min)">NC 1-2 L/min</option>
+          <option value="Nasal Cannula (3-4 L/min)">NC 3-4 L/min</option>
+          <option value="NRBM Mask">NRBM Mask</option>
+          <option value="High Flow Nasal Cannula (HFNC)">HFNC</option>
+          <option value="NIV / BiPAP">NIV / BiPAP</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CBC & Engraftment Tracker -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">🧪 CBC & Engraftment Tracker</span>
+      <span id="engraftment-status" class="badge badge-warning">Awaiting Engraftment</span>
+    </div>
+    <div class="grid">
+      <div class="form-group">
+        <label for="wbc">WBC (x10³/µL)</label>
+        <input id="wbc" type="number" step="0.01" placeholder="e.g. 0.15">
+      </div>
+      <div class="form-group">
+        <label for="anc">ANC (cells/µL)</label>
+        <input id="anc" type="number" placeholder="e.g. 150">
+      </div>
+      <div class="form-group">
+        <label for="hb">Hemoglobin (g/dL)</label>
+        <input id="hb" type="number" step="0.1" placeholder="e.g. 8.4">
+      </div>
+      <div class="form-group">
+        <label for="plt">Platelets (x10³/µL)</label>
+        <input id="plt" type="number" placeholder="e.g. 24">
+      </div>
+    </div>
+    <div id="engraftment-alert" class="alert-box badge-warning">
+      ℹ️ Severe Neutropenia (ANC &lt; 500). Monitor strictly for Neutropenic Fever.
+    </div>
+  </div>
+
+  <!-- Mucositis & GvHD Toxicity -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">⚠️ Mucositis & GvHD Toxicity Grading</span>
+    </div>
+    <div class="grid">
+      <div class="form-group">
+        <label for="mucositis">Oral Mucositis Grade</label>
+        <select id="mucositis">
+          <option value="Grade 0 (None)">Grade 0 — None</option>
+          <option value="Grade 1 (Painless Ulcers / Erythema)">Grade 1 — Erythema / Mild Ulcers</option>
+          <option value="Grade 2 (Painful Erythema, Soluble Diet)">Grade 2 — Ulcers, Can Swallow Solids</option>
+          <option value="Grade 3 (Liquid Diet Only)">Grade 3 — Liquid Diet Only</option>
+          <option value="Grade 4 (NPO / Alimentation Impossible)">Grade 4 — NPO / Severe Ulceration</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gvhd-skin">Skin GvHD Grade</label>
+        <select id="gvhd-skin">
+          <option value="Stage 0 (No Rash)">Stage 0 — No Rash</option>
+          <option value="Stage 1 (&lt;25% BSA Rash)">Stage 1 — &lt;25% BSA Maculopapular Rash</option>
+          <option value="Stage 2 (25-50% BSA Rash)">Stage 2 — 25–50% BSA Rash</option>
+          <option value="Stage 3 (&gt;50% BSA Rash)">Stage 3 — &gt;50% BSA Erythroderma</option>
+          <option value="Stage 4 (Generalized Bullae)">Stage 4 — Generalized Bullae / Desquamation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gvhd-gi">GI GvHD / Diarrhea</label>
+        <input id="gvhd-gi" placeholder="e.g. 500 mL/day, Mild Cramping">
       </div>
     </div>
   </div>
 
   <!-- Fluid Balance -->
-  <div class="box">
-    <h2>💧 Fluid Balance</h2>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">💧 24h Fluid Balance Tracker</span>
+    </div>
     <div class="grid">
       <div class="form-group">
         <label for="ivf">IV Fluid Intake (mL)</label>
-        <input id="ivf" type="number" step="0.1" placeholder="0 mL">
+        <input id="ivf" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
         <label for="oral">Oral Intake (mL)</label>
-        <input id="oral" type="number" step="0.1" placeholder="0 mL">
+        <input id="oral" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
         <label for="totalin">Total Intake (mL)</label>
-        <input id="totalin" readonly placeholder="0 mL">
+        <input id="totalin" readonly placeholder="0">
       </div>
       <div class="form-group">
-        <label for="urine">Urine + Motion Output (mL)</label>
-        <input id="urine" type="number" step="0.1" placeholder="0 mL">
+        <label for="urine">Urine Output (mL)</label>
+        <input id="urine" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
-        <label for="motion">Motion (episodes)</label>
-        <input id="motion" type="number" placeholder="0 episodes">
+        <label for="diarrhea">Diarrhea / Stool Output (mL)</label>
+        <input id="diarrhea" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
-        <label for="vomiting">Vomiting (episodes)</label>
-        <input id="vomiting" type="number" placeholder="0 episodes">
+        <label for="vomit">Vomiting / Drain Output (mL)</label>
+        <input id="vomit" type="number" step="0.1" placeholder="0">
       </div>
       <div class="form-group">
         <label for="totalout">Total Output (mL)</label>
-        <input id="totalout" readonly placeholder="0 mL">
+        <input id="totalout" readonly placeholder="0">
       </div>
       <div class="form-group">
-        <label for="fluidbalance">Fluid Balance (mL)</label>
-        <input id="fluidbalance" readonly placeholder="0 mL">
+        <label for="fluidbalance">Net Fluid Balance (mL)</label>
+        <input id="fluidbalance" readonly placeholder="0">
       </div>
     </div>
   </div>
 
   <!-- Actions -->
-  <div class="buttons">
-    <button class="copy" onclick="copyFields()">
-      📋 Copy Report
+  <div class="action-bar">
+    <button class="btn btn-whatsapp" onclick="sendWhatsApp()">
+      💬 WhatsApp Intimation
     </button>
-    <button class="whatsapp" onclick="whatsapp()">
-      💬 Send to WhatsApp
+    <button class="btn btn-copy" onclick="copyReport()">
+      📋 Copy Clinical Report
     </button>
-    <button class="clear" onclick="clearAll()">
+    <button class="btn btn-print" onclick="window.print()">
+      🖨️ Print / Save PDF
+    </button>
+    <button class="btn btn-clear" onclick="saveRecord()">
+      💾 Save Log locally
+    </button>
+    <button class="btn btn-clear" onclick="resetForm()">
       🔄 Clear Form
     </button>
   </div>
 
-  <!-- Formatted Preview -->
-  <div class="box">
-    <h2>📝 Formatted Clinical Report Preview</h2>
-    <div id="report">Fill out the form above to view live preview...</div>
-    <div id="status" class="status"></div>
+  <!-- Report Preview -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">📝 Formatted Doctor Intimation Report</span>
+    </div>
+    <div id="report-preview">Form data will dynamically render here...</div>
+    <div id="status-toast" class="status-toast"></div>
   </div>
+
+  <!-- Saved Logs History -->
+  <div class="card history-card">
+    <div class="card-header">
+      <span class="card-title">📚 Saved Patient Logs</span>
+      <button onclick="clearHistory()" style="background:none; border:none; color:var(--danger); cursor:pointer; font-size:12px; font-weight:700;">Clear History</button>
+    </div>
+    <div id="history-container" class="history-list">
+      <div style="font-size:13px; color:var(--text-muted);">No saved logs yet. Click "Save Log locally" to record daily entries.</div>
+    </div>
+  </div>
+
 </main>
 
 <script>
 function E(id){ return document.getElementById(id); }
 function n(id){ return parseFloat(E(id).value) || 0; }
 
-function updateCalculations(){
-  var totalIn = n("ivf") + n("oral");
-  var totalOut = n("urine");
-  var balance = totalIn - totalOut;
+// Theme Toggle
+function toggleTheme() {
+  const body = document.body;
+  const currentTheme = body.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  body.setAttribute('data-theme', newTheme);
+}
+
+// Calculate MAP
+function calculateMAP() {
+  const bpStr = E("bp").value.trim();
+  if (bpStr.includes('/')) {
+    const parts = bpStr.split('/');
+    const sys = parseFloat(parts[0]);
+    const dia = parseFloat(parts[1]);
+    if (!isNaN(sys) && !isNaN(dia)) {
+      const mapVal = dia + ((sys - dia) / 3);
+      E("map").value = mapVal.toFixed(1);
+    }
+  }
+}
+
+// Calculate Day Post-BMT
+function updateBMTDay() {
+  const bmtDateStr = E("bmt-date").value;
+  const logDateStr = E("log-date").value;
+  const badge = E("bmt-day-badge");
   
+  if (bmtDateStr && logDateStr) {
+    const d0 = new Date(bmtDateStr);
+    const dLog = new Date(logDateStr);
+    const diffTime = dLog - d0;
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays >= 0) {
+      badge.textContent = `Day +${diffDays}`;
+      badge.className = "badge badge-success";
+    } else {
+      badge.textContent = `Day ${diffDays}`;
+      badge.className = "badge badge-warning";
+    }
+  } else {
+    badge.textContent = "Day +0";
+  }
+}
+
+// Update Calculations & Live Report
+function updateCalculations() {
+  calculateMAP();
+  updateBMTDay();
+
+  // Fluid Calculations
+  const totalIn = n("ivf") + n("oral");
+  const totalOut = n("urine") + n("diarrhea") + n("vomit");
+  const balance = totalIn - totalOut;
+
   E("totalin").value = totalIn ? totalIn : "";
   E("totalout").value = totalOut ? totalOut : "";
   E("fluidbalance").value = (totalIn || totalOut) ? balance : "";
-  
-  formatData();
+
+  // Vital Alert Checks
+  const temp = n("temp");
+  const spo2 = n("spo2");
+  const vitalsBadge = E("vitals-alert-badge");
+
+  if (temp >= 100.4 || spo2 < 95 && spo2 > 0) {
+    vitalsBadge.textContent = "⚠️ Critical Vitals Alert";
+    vitalsBadge.className = "badge badge-danger";
+  } else {
+    vitalsBadge.textContent = "✓ Vitals Stable";
+    vitalsBadge.className = "badge badge-success";
+  }
+
+  // Engraftment Checks
+  const anc = n("anc");
+  const plt = n("plt");
+  const engBadge = E("engraftment-status");
+  const alertBox = E("engraftment-alert");
+
+  if (anc >= 500 && plt >= 20) {
+    engBadge.textContent = "🎉 Engrafted (ANC ≥ 500 & Plt ≥ 20k)";
+    engBadge.className = "badge badge-success";
+    alertBox.textContent = "✅ Patient shows sustained Neutrophil & Platelet engraftment!";
+    alertBox.className = "alert-box badge-success";
+  } else if (anc < 500 && anc > 0) {
+    engBadge.textContent = "⚠️ Severe Neutropenia (ANC < 500)";
+    engBadge.className = "badge badge-danger";
+    alertBox.textContent = "🚨 Severe Neutropenia (ANC < 500). High risk for Neutropenic Fever!";
+    alertBox.className = "alert-box badge-danger";
+  } else {
+    engBadge.textContent = "Awaiting Engraftment";
+    engBadge.className = "badge badge-warning";
+    alertBox.textContent = "ℹ️ Monitoring ANC & Platelet count daily for engraftment day.";
+    alertBox.className = "alert-box badge-warning";
+  }
+
+  generateReport();
 }
 
-function formatData(){
-  var temp = E("temp").value;
-  var pulse = E("pulse").value;
-  var rr = E("rr").value;
-  var bp = E("bp").value;
-  var map = E("map").value;
-  var spo2 = E("spo2").value;
-  var ivf = E("ivf").value;
-  var oral = E("oral").value;
-  var totalin = E("totalin").value;
-  var urine = E("urine").value;
-  var motion = E("motion").value;
-  var vomiting = E("vomiting").value;
-  var totalout = E("totalout").value;
-  var balance = E("fluidbalance").value;
-  var greetingText = E("greeting") ? E("greeting").textContent : "Good Day";
+// Generate Text Report
+function generateReport() {
+  const greetingText = E("greeting-text").textContent;
+  const bmtDay = E("bmt-day-badge").textContent;
+  
+  const name = E("name").value || "—";
+  const mrn = E("mrn").value || "—";
+  const age = E("age").value || "—";
+  const weight = E("weight").value ? E("weight").value + " kg" : "—";
+  const logDate = E("log-date").value || "—";
+  const logTime = E("log-time").value || "—";
 
-  var lines = [
-    greetingText + " Doctor,",
-    "",
-    "--- BMT CLINICAL MONITORING REPORT ---",
-    "Patient Name        : " + (E("name").value || "—"),
-    "Age                 : " + (E("Age").value || "—"),
-    "Weight              : " + (E("Weight").value ? E("Weight").value + " Kg" : "—"),
-    "Date                : " + (E("date").value || "—"),
-    "Time                : " + (E("time").value || "—"),
-    "",
-    "--- VITAL SIGNS ---",
-    "Temperature         : " + (temp ? temp + " °F" : "—"),
-    "Pulse Rate          : " + (pulse ? pulse + " beats/min" : "—"),
-    "Respiratory Rate    : " + (rr ? rr + " breaths/min" : "—"),
-    "Blood Pressure      : " + (bp ? bp + " mmHg" : "—"),
-    "MAP                 : " + (map ? map + " mmHg" : "—"),
-    "SpO₂                : " + (spo2 ? spo2 + " %" : "—"),
-    "",
-    "--- FLUID BALANCE ---",
-    "IV Fluid Intake     : " + (ivf ? ivf + " mL" : "—"),
-    "Oral Intake         : " + (oral ? oral + " mL" : "—"),
-    "Total Intake        : " + (totalin ? totalin + " mL" : "—"),
-    "Urine + Motion Out  : " + (urine ? urine + " mL" : "—"),
-    "Motion              : " + (motion ? motion + " episodes" : "—"),
-    "Vomiting            : " + (vomiting ? vomiting + " episodes" : "—"),
-    "Total Output        : " + (totalout ? totalout + " mL" : "—"),
-    "Fluid Balance       : " + (balance ? balance + " mL" : "—")
+  const temp = E("temp").value;
+  const pulse = E("pulse").value;
+  const rr = E("rr").value;
+  const bp = E("bp").value;
+  const map = E("map").value;
+  const spo2 = E("spo2").value;
+  const o2sup = E("o2support").value;
+
+  const wbc = E("wbc").value;
+  const anc = E("anc").value;
+  const hb = E("hb").value;
+  const plt = E("plt").value;
+
+  const mucositis = E("mucositis").value;
+  const gvhdSkin = E("gvhd-skin").value;
+  const gvhdGi = E("gvhd-gi").value;
+
+  const ivf = E("ivf").value;
+  const oral = E("oral").value;
+  const totalin = E("totalin").value;
+  const urine = E("urine").value;
+  const diarrhea = E("diarrhea").value;
+  const vomit = E("vomit").value;
+  const totalout = E("totalout").value;
+  const balance = E("fluidbalance").value;
+
+  const lines = [
+    `*${greetingText} Doctor,*`,
+    `*BMT CLINICAL INTIMATION REPORT [${bmtDay}]*`,
+    `📅 Date: ${logDate} | ⏰ Time: ${logTime}`,
+    ``,
+    `*👤 PATIENT PROFILE*`,
+    `• Name: *${name}*`,
+    `• UHID/MRN: ${mrn}`,
+    `• Age/Gender: ${age} | Wt: ${weight}`,
+    ``,
+    `*🩺 VITAL SIGNS*`,
+    `• Temp: ${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}`,
+    `• Pulse: ${pulse ? pulse + ' bpm' : '—'} | RR: ${rr ? rr + ' /min' : '—'}`,
+    `• BP: ${bp ? bp + ' mmHg' : '—'} (MAP: ${map ? map + ' mmHg' : '—'})`,
+    `• SpO₂: ${spo2 ? spo2 + ' %' : '—'} (${o2sup})`,
+    ``,
+    `*🧪 LABS & ENGRAFTMENT*`,
+    `• WBC: ${wbc ? wbc + ' x10³/µL' : '—'}`,
+    `• ANC: ${anc ? anc + ' cells/µL' + (parseFloat(anc) < 500 ? ' ⚠️ NEUTROPENIA' : '') : '—'}`,
+    `• Hb: ${hb ? hb + ' g/dL' : '—'} | Plt: ${plt ? plt + ' x10³/µL' : '—'}`,
+    ``,
+    `*⚠️ TOXICITY GRADING*`,
+    `• Oral Mucositis: ${mucositis}`,
+    `• Skin GvHD: ${gvhdSkin}`,
+    `• GI Output/Diarrhea: ${gvhdGi || 'Nil'}`,
+    ``,
+    `*💧 24H FLUID BALANCE*`,
+    `• Total Intake: ${totalin ? totalin + ' mL' : '—'} (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)`,
+    `• Total Output: ${totalout ? totalout + ' mL' : '—'} (Urine: ${urine || 0} mL, Diarrhea: ${diarrhea || 0} mL, Vomit: ${vomit || 0} mL)`,
+    `• Net Balance: *${balance ? balance + ' mL' : '—'}*`
   ];
 
-  var text = lines.join("\n");
-  E("report").textContent = text;
-  return text;
+  const reportText = lines.join("\n");
+  E("report-preview").textContent = reportText;
+  return reportText;
 }
 
-async function copyFields(){
-  var text = formatData();
+// Actions
+async function copyReport() {
+  const text = generateReport();
   try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      E("status").textContent = "✓ Report copied to clipboard!";
-    } else {
-      var ta = document.createElement("textarea");
-      ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.left = "-9999px";
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      var ok = document.execCommand("copy");
-      document.body.removeChild(ta);
-      E("status").textContent = ok ? "✓ Report copied to clipboard!" : "Please select text manually from the preview below.";
-    }
-  } catch(e) {
-    E("status").textContent = "Copy failed — please select text manually from the preview.";
+    await navigator.clipboard.writeText(text);
+    showToast("✓ Clinical report copied to clipboard!");
+  } catch (err) {
+    showToast("⚠️ Please select text manually from preview.");
   }
 }
 
-function whatsapp(){
-  var text = formatData();
-  var encoded = encodeURIComponent(text);
-  var url = "https://wa.me/?text=" + encoded;
+function sendWhatsApp() {
+  const text = generateReport();
+  const url = "https://wa.me/?text=" + encodeURIComponent(text);
   window.open(url, "_blank");
-  E("status").textContent = "Opening WhatsApp...";
+  showToast("💬 Opening WhatsApp...");
 }
 
-function clearAll(){
-  if(confirm("Clear all entered clinical information?")){
-    E("name").value = "";
-    E("Age").value = "";
-    E("Weight").value = "";
-    
-    var d = new Date();
-    var yyyy = d.getFullYear();
-    var mm = String(d.getMonth() + 1).padStart(2, "0");
-    var dd = String(d.getDate()).padStart(2, "0");
-    var hh = String(d.getHours()).padStart(2, "0");
-    var min = String(d.getMinutes()).padStart(2, "0");
-    
-    E("date").value = yyyy + "-" + mm + "-" + dd;
-    E("time").value = hh + ":" + min;
-    
-    E("temp").value = ""; E("pulse").value = ""; E("rr").value = "";
-    E("bp").value = ""; E("map").value = ""; E("spo2").value = "";
-    E("ivf").value = ""; E("oral").value = ""; E("urine").value = "";
-    E("motion").value = ""; E("vomiting").value = "";
-    E("totalin").value = ""; E("totalout").value = ""; E("fluidbalance").value = "";
-    
-    E("status").textContent = "";
-    
-    var hour = d.getHours();
-    var greeting = hour < 12 ? "Good Morning" : (hour < 17 ? "Good Afternoon" : "Good Evening");
-    if(E("greeting")) E("greeting").textContent = greeting;
-    
-    formatData();
+function showToast(msg) {
+  const toast = E("status-toast");
+  toast.textContent = msg;
+  setTimeout(() => { toast.textContent = ""; }, 4000);
+}
+
+function resetForm() {
+  if (confirm("Reset all current clinical data fields?")) {
+    document.querySelectorAll("input").forEach(i => i.value = "");
+    initDateTime();
+    updateCalculations();
+    showToast("Form reset clean.");
   }
 }
 
-/* Auto-attach input listeners */
-document.querySelectorAll("input").forEach(function(input) {
-  input.addEventListener("input", function() {
-    updateCalculations();
-  });
+// Local Storage History
+function saveRecord() {
+  const record = {
+    id: Date.now(),
+    name: E("name").value || "Unnamed Patient",
+    bmtDay: E("bmt-day-badge").textContent,
+    date: E("log-date").value,
+    time: E("log-time").value,
+    text: generateReport()
+  };
+
+  let history = JSON.parse(localStorage.getItem("bmt_history") || "[]");
+  history.unshift(record);
+  localStorage.setItem("bmt_history", JSON.stringify(history));
+  renderHistory();
+  showToast("💾 Log saved locally!");
+}
+
+function renderHistory() {
+  const container = E("history-container");
+  const history = JSON.parse(localStorage.getItem("bmt_history") || "[]");
+
+  if (history.length === 0) {
+    container.innerHTML = '<div style="font-size:13px; color:var(--text-muted);">No saved logs yet. Click "Save Log locally" to record daily entries.</div>';
+    return;
+  }
+
+  container.innerHTML = history.map(item => `
+    <div class="history-item">
+      <div>
+        <strong>${item.name}</strong> (${item.bmtDay}) — <span style="color:var(--text-muted);">${item.date} ${item.time}</span>
+      </div>
+      <button onclick="loadHistoryItem(${item.id})">Load</button>
+    </div>
+  `).join("");
+}
+
+function loadHistoryItem(id) {
+  const history = JSON.parse(localStorage.getItem("bmt_history") || "[]");
+  const item = history.find(h => h.id === id);
+  if (item) {
+    E("report-preview").textContent = item.text;
+    showToast("Loaded saved report log.");
+  }
+}
+
+function clearHistory() {
+  if (confirm("Delete all saved patient log history?")) {
+    localStorage.removeItem("bmt_history");
+    renderHistory();
+    showToast("History cleared.");
+  }
+}
+
+// Init Setup
+function initDateTime() {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const hh = String(d.getHours()).padStart(2, "0");
+  const min = String(d.getMinutes()).padStart(2, "0");
+
+  E("log-date").value = `${yyyy}-${mm}-${dd}`;
+  E("log-time").value = `${hh}:${min}`;
+  if (!E("bmt-date").value) E("bmt-date").value = `${yyyy}-${mm}-${dd}`;
+
+  E("current-timestamp").textContent = `${dd}/${mm}/${yyyy} ${hh}:${min}`;
+
+  const hour = d.getHours();
+  const greeting = hour < 12 ? "Good Morning" : (hour < 17 ? "Good Afternoon" : "Good Evening");
+  E("greeting-text").textContent = greeting;
+}
+
+document.querySelectorAll("input, select").forEach(el => {
+  el.addEventListener("input", updateCalculations);
 });
 
-/* Initial Setup */
-(function(){
-  var d = new Date();
-  var yyyy = d.getFullYear();
-  var mm = String(d.getMonth() + 1).padStart(2, "0");
-  var dd = String(d.getDate()).padStart(2, "0");
-  var hh = String(d.getHours()).padStart(2, "0");
-  var min = String(d.getMinutes()).padStart(2, "0");
-  
-  E("date").value = yyyy + "-" + mm + "-" + dd;
-  E("time").value = hh + ":" + min;
-  
-  var hour = d.getHours();
-  var greeting = hour < 12 ? "Good Morning" : (hour < 17 ? "Good Afternoon" : "Good Evening");
-  if(E("greeting")) E("greeting").textContent = greeting;
-  
-  formatData();
+(function() {
+  initDateTime();
+  updateCalculations();
+  renderHistory();
 })();
 </script>
 </body>

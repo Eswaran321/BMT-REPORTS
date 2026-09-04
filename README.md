@@ -1,44 +1,50 @@
-# 🩺 BMT REPORTS — Clinical Monitoring & Doctor Intimation System
+# 🩸 BMT REPORTS — Bone Marrow Transplant Clinical Suite & Intimation
 
-Production-grade, lightweight Web Application for **Clinical Monitoring, Vital Signs Tracking, Fluid Balance Calculations, and Instant Doctor Intimation via WhatsApp**.
+Production-grade, high-performance **Clinical Suite & Doctor Intimation System** specifically designed for **Bone Marrow Transplant (BMT) / Hematology-Oncology** units.
 
 ---
 
 ## 🌟 Key Features
 
-- 📋 **Patient Details**: Record Patient Name, Age, Weight, Date, and Time stamp.
-- 🩺 **Vital Signs Tracker**: Real-time logging of Temperature (°F), Pulse Rate, Respiratory Rate, Blood Pressure (mmHg), MAP, and $\text{SpO}_2$ (%).
-- 💧 **Automatic Fluid Balance Calculations**:
-  - **Intake**: IV Fluid Intake + Oral Intake = Total Intake (mL).
-  - **Output**: Urine + Motion Output, Motion episodes, Vomiting episodes = Total Output (mL).
-  - **Net Fluid Balance**: Automatically calculates (Total Intake - Total Output).
-- 📝 **Live Clinical Report Formatting**: Generates clean, formatted text summaries tailored for doctor sign-off.
-- 💬 **One-Click WhatsApp Doctor Intimation**: Directly formats and transfers patient clinical reports into WhatsApp with pre-filled text.
-- 📋 **Clipboard Copy & Clear Form**: Quick action controls for clinical staff.
+1. 👤 **Patient & BMT Day Tracking**:
+   - Calculates **Day Post-BMT** automatically relative to Day 0 (Transplant Date).
+   - Tracks UHID / MRN, Age/Gender, Weight (kg), Date & Time.
+
+2. 🩺 **Vital Signs & Early Warning Score (EWS)**:
+   - Temperature (°F), Pulse Rate (bpm), Resp. Rate, Blood Pressure (mmHg), MAP (auto-calculated), $\text{SpO}_2$ (%), O2 Support level.
+   - **Auto-Risk Alert System**: Flags Neutropenic Fever ($\ge 100.4^\circ\text{F}$) and Hypoxia ($\text{SpO}_2 < 95\%$).
+
+3. 🧪 **CBC & Engraftment Tracker**:
+   - Tracks WBC, ANC (cells/µL), Hemoglobin (g/dL), Platelets ($\times 10^3/\mu\text{L}$).
+   - **Auto-Engraftment Detector**: Monitors criteria for neutrophil engraftment ($\text{ANC} \ge 500$) and platelet engraftment ($\text{Plt} \ge 20\text{k}$).
+
+4. ⚠️ **Toxicity & GvHD Grading**:
+   - WHO Oral Mucositis Grading (Grade 0–4).
+   - Acute Skin GvHD Staging (Stage 0–4 BSA rash).
+   - GI GvHD / Diarrhea output tracking.
+
+5. 💧 **24-Hour Fluid Balance**:
+   - Auto-summation of IV Fluid Intake + Oral Intake.
+   - Summation of Urine + Diarrhea + Vomit/Drains.
+   - Calculates Net 24h Fluid Balance (mL).
+
+6. 📤 **Multi-Format Export & Doctor Intimation**:
+   - 💬 **WhatsApp Intimation**: Formatted with markdown emojis for direct messaging to attending consultants.
+   - 📋 **Copy to Clipboard**: Quick copy for EMR/EHR clinical notes.
+   - 🖨️ **Print / PDF Export**: Styled printable layout for physical patient charts.
+   - 💾 **Local Storage Log History**: Save daily entries in-browser to review past clinical trends.
+   - 🌓 **Dark / Light Mode**: High-contrast theme toggle for night-shift clinical staff.
 
 ---
 
 ## 🚀 Live Access & Deployment Options
 
-### Option 1: Live GitHub Pages Deployment
-1. Go to your GitHub Repository Settings: [Eswaran321/BMT-REPORTS Settings](https://github.com/Eswaran321/BMT-REPORTS/settings/pages)
-2. Under **Build and deployment** -> **Source**, select `Deploy from a branch`.
-3. Select branch `main` and folder `/ (root)`, then click **Save**.
-4. Your application will be live instantly at:
-   `https://eswaran321.github.io/BMT-REPORTS/`
+### 1. Live Web Access (Local Server Running)
+Open in your browser right now:
+👉 `http://localhost:8080`
 
-### Option 2: Run Locally (Instant HTTP Server)
-```bash
-python -m http.server 8080 --directory "c:\Users\eswar\OneDrive\Documents\BMT-REPORTS"
-```
-Open your browser at: `http://localhost:8080`
-
----
-
-## 📁 Repository Structure
-```
-BMT-REPORTS/
-├── index.html               # Main Web App entrypoint (GitHub Pages compatible)
-├── BMT REPORTS FINAL.html   # Standalone HTML application copy
-└── README.md                # Documentation & Setup guide
-```
+### 2. GitHub Pages Deployment (Free Worldwide Access)
+The repository is deployed on branch `main` and `gh-pages`:
+- GitHub Repository: [Eswaran321/BMT-REPORTS](https://github.com/Eswaran321/BMT-REPORTS)
+- GitHub Pages Settings: [Pages Configuration](https://github.com/Eswaran321/BMT-REPORTS/settings/pages)
+- Live Site URL: **`https://eswaran321.github.io/BMT-REPORTS/`**
