@@ -6,17 +6,16 @@ Production-grade, high-performance **Clinical Suite & Doctor Intimation System**
 
 ## 🌟 Key Features
 
-1. 👤 **Patient & BMT Day Tracking**:
-   - Calculates **Day Post-BMT** automatically relative to Day 0 (Transplant Date).
-   - Tracks UHID / MRN, Age/Gender, Weight (kg), Date & Time.
+1. 👤 **Patient Details**:
+   - Captures Patient Name, Age, Weight (kg), Date & Time.
 
 2. 🩺 **Vital Signs & Early Warning Score (EWS)**:
-   - Temperature (°F), Pulse Rate (bpm), Resp. Rate, Blood Pressure (mmHg), MAP (auto-calculated), $\text{SpO}_2$ (%), O2 Support level.
+   - Temperature (°F), Pulse Rate (bpm), Resp. Rate, Blood Pressure (mmHg), MAP (auto-calculated), $\text{SpO}_2$ (%).
    - **Auto-Risk Alert System**: Flags Neutropenic Fever ($\ge 100.4^\circ\text{F}$) and Hypoxia ($\text{SpO}_2 < 95\%$).
 
 3. 🧪 **CBC & Engraftment Tracker**:
    - Tracks WBC, ANC (cells/µL), Hemoglobin (g/dL), Platelets ($\times 10^3/\mu\text{L}$).
-   - **Auto-Engraftment Detector**: Monitors criteria for neutrophil engraftment ($\text{ANC} \ge 500$) and platelet engraftment ($\text{Plt} \ge 20\text{k}$).
+   - **Auto-Engraftment Detector**: Detects criteria for neutrophil engraftment ($\text{ANC} \ge 500$) and platelet engraftment ($\text{Plt} \ge 20\text{k}$).
 
 4. ⚠️ **Toxicity & GvHD Grading**:
    - WHO Oral Mucositis Grading (Grade 0–4).
