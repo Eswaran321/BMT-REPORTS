@@ -595,13 +595,13 @@ function generateReport() {
     ``,
     `💧 FLUID BALANCE`,
     `• IV            : ${ivf                   || 0} mL`, 
-    `• Oral          : ${oral                  || 0} mL)`,
+    `• Oral          : ${oral                  || 0} mL`,
     `• Total Intake  : ${totalin ? totalin + ' mL'   : '—'}`,
     `• Urine         : ${urine                 || 0} mL`,
-    `• Motion        : ${diarrhea              || 0}`,
-    `• Vomit         : ${vomit                 || 0} )`,
+    `• Motion        : ${diarrhea              || 0} mL`,
+    `• Vomit         : ${vomit                 || 0} mL`,
     `• Total Output  : ${totalout ? totalout + ' mL' : '—'}`, 
-    `• fluid Balance : ${balance ? balance + ' mL'   : '—'}`
+    `• Fluid Balance : ${balance ? balance + ' mL'   : '—'}`
   ];
 
   const reportText = lines.join("\n");
