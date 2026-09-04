@@ -554,8 +554,6 @@ function updateCalculations() {
 
 // Generate Text Report
 function generateReport() {
-  const greetingText = E("greeting-text").textContent;
-  
   const name = E("name").value || "—";
   const age = E("age").value || "—";
   const weight = E("weight").value ? E("weight").value + " kg" : "—";
@@ -579,26 +577,25 @@ function generateReport() {
   const balance = E("fluidbalance").value;
 
   const lines = [
-    `*${greetingText} Doctor,*`,
-    `*BMT CLINICAL INTIMATION REPORT*`,
+    `BMT CLINICAL INTIMATION REPORT`,
     ``,
-    `*👤 PATIENT PROFILE*`,
-    `*• Patient Name: ${name}*`,
+    `👤 PATIENT PROFILE`,
+    `• Patient Name: ${name}`,
     `• Age: ${age}`,
     `• Weight: ${weight}`,
     `• Date: ${logDate}`,
     `• Time: ${logTime}`,
     ``,
-    `*🩺 VITAL SIGNS*`,
-    `*• Temp: ${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}*`,
+    `🩺 VITAL SIGNS`,
+    `• Temp: ${temp ? temp + ' °F' + (parseFloat(temp) >= 100.4 ? ' 🚨 FEVER' : '') : '—'}`,
     `• Pulse: ${pulse ? pulse + ' bpm' : '—'} | RR: ${rr ? rr + ' /min' : '—'}`,
     `• BP: ${bp ? bp + ' mmHg' : '—'} (MAP: ${map ? map + ' mmHg' : '—'})`,
     `• SpO₂: ${spo2 ? spo2 + ' %' : '—'}`,
     ``,
-    `*💧 24H FLUID BALANCE*`,
-    `*• Total Intake: ${totalin ? totalin + ' mL' : '—'} (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)*`,
-    `*• Total Output: ${totalout ? totalout + ' mL' : '—'} (Urine: ${urine || 0} mL, Diarrhea: ${diarrhea || 0} mL, Vomit: ${vomit || 0} mL)*`,
-    `*• Net Balance: ${balance ? balance + ' mL' : '—'}*`
+    `💧 24H FLUID BALANCE`,
+    `• Total Intake: ${totalin ? totalin + ' mL' : '—'} (IV: ${ivf || 0} mL, Oral: ${oral || 0} mL)`,
+    `• Total Output: ${totalout ? totalout + ' mL' : '—'} (Urine: ${urine || 0} mL, Diarrhea: ${diarrhea || 0} mL, Vomit: ${vomit || 0} mL)`,
+    `• Net Balance: ${balance ? balance + ' mL' : '—'}`
   ];
 
   const reportText = lines.join("\n");
