@@ -621,7 +621,8 @@ async function copyReport() {
 
 function sendWhatsApp() {
   const text = generateReport();
-  const url = "https://wa.me/?text=" + encodeURIComponent(text);
+  const waText = "```\n" + text + "\n```";
+  const url = "https://wa.me/?text=" + encodeURIComponent(waText);
   window.open(url, "_blank");
   showToast("💬 Opening WhatsApp...");
 }
