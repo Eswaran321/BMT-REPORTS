@@ -577,29 +577,29 @@ function generateReport() {
   const balance  = E("fluidbalance").value;
 
   const lines = [
-    `• *Patient Name      :   ${name}*`,
-    `• Age                :   ${age}`,
-    `• Weight             :   ${weight}`,
-    `• Date               :   ${logDate}`,
-    `• Time               :   ${logTime}`,
+    `• *Patient Name              : ${name}*`,
+    `• Age                        : ${age}`,
+    `• Weight                     : ${weight}`,
+    `• Date                       : ${logDate}`,
+    `• Time                       : ${logTime}`,
     ``,
     `🩺 VITAL SIGNS`,
-    `• *Temp              :   ${temp ? temp + ' °F' : '—'}*`,
-    `• Pulse              :   ${pulse ? pulse + ' bpm' : '—'}`,
-    `• RR                 :   ${rr ? rr + ' /min' : '—'}`,
-    `• BP                 :   ${bp ? bp + ' mmHg' : '—'}`,
-    `• MAP                :   ${map ? map + ' mmHg' : '—'}`,
-    `• SpO2               :   ${spo2 ? spo2 + ' %' : '—'}`,
+    `• *Temp                      : ${temp ? temp + ' °F' : '—'}*`,
+    `• Pulse                      : ${pulse ? pulse + ' bpm' : '—'}`,
+    `• RR                         : ${rr ? rr + ' /min' : '—'}`,
+    `• BP                         : ${bp ? bp + ' mmHg' : '—'}`,
+    `• MAP                        : ${map ? map + ' mmHg' : '—'}`,
+    `• SpO2                       : ${spo2 ? spo2 + ' %' : '—'}`,
     ``,
     `💧 FLUID BALANCE`,
-    `• IV                 :   ${ivf || 0} mL`,
-    `• Oral               :   ${oral || 0} mL`,
-    `• *Total Intake      :   ${totalin ? totalin + ' mL' : '—'}*`,
-    `• Urine              :   ${urine || 0} mL`,
-    `• Motion             :   ${diarrhea || 0} mL`,
-    `• Vomit              :   ${vomit || 0} mL`,
-    `• *Total Output      :   ${totalout ? totalout + ' mL' : '—'}*`,
-    `• *Fluid Balance     :   ${balance ? balance + ' mL' : '—'}*`
+    `• IV                         : ${ivf || 0} mL`,
+    `• Oral                       : ${oral || 0} mL`,
+    `• *Total Intake              : ${totalin ? totalin + ' mL' : '—'}*`,
+    `• Urine                      : ${urine || 0} mL`,
+    `• Motion                     : ${diarrhea || 0} mL`,
+    `• Vomit                      : ${vomit || 0} mL`,
+    `• *Total Output              : ${totalout ? totalout + ' mL' : '—'}*`,
+    `• *Fluid Balance             : ${balance ? balance + ' mL' : '—'}*`
   ];
 
   const reportText = lines.join("\n");
