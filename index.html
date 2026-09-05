@@ -577,7 +577,6 @@ function generateReport() {
   const balance  = E("fluidbalance").value;
 
   const lines = [
-    `👤 PATIENT PROFILE`,
     `• Patient Name    : ${name}`,
     `• Age             : ${age}`,
     `• Weight          : ${weight}`,
@@ -621,8 +620,7 @@ async function copyReport() {
 
 function sendWhatsApp() {
   const text = generateReport();
-  const waText = "```\n" + text + "\n```";
-  const url = "https://wa.me/?text=" + encodeURIComponent(waText);
+  const url = "https://wa.me/?text=" + encodeURIComponent(text);
   window.open(url, "_blank");
   showToast("💬 Opening WhatsApp...");
 }
