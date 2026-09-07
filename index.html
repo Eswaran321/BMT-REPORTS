@@ -582,14 +582,14 @@ function generateReport() {
   const abGirth  = E("AB Girth").value;
 
   const lines = [
-    `*Name          : ${name}*`,
-    ` Age           : ${age}`,
+    ` *Name          : ${name}*`,
+    ` Age             : ${age}`,
     ` Weight        : ${weight}`,
     ` Date          : ${logDate}`,
     ` Time          : ${logTime}`,
     ``,
     `🩺 VITAL SIGNS`,
-    `*Temp          : ${temp ? temp + ' °F' : '—'}*`,
+    ` *Temp          : ${temp ? temp + ' °F' : '—'}*`,
     ` Pulse         : ${pulse ? pulse + ' bpm' : '—'}`,
     ` RR            : ${rr ? rr + ' /min' : '—'}`,
     ` BP            : ${bp ? bp + ' mmHg' : '—'}`,
@@ -599,12 +599,12 @@ function generateReport() {
     `💧 FLUID BALANCE`,
     ` IV            : ${ivf || 0} mL`,
     ` Oral          : ${oral || 0} mL`,
-    `*Total Intake  : ${totalin ? totalin + ' mL' : '—'}*`,
+    ` *Total Intake  : ${totalin ? totalin + ' mL' : '—'}*`,
     ` Urine         : ${urine || 0} mL`,
     ` Motion        : ${diarrhea || 0} (episode)`,
     ` Vomit         : ${vomit || 0} (episode)`,
-    `*Total Output  : ${totalout ? totalout + ' mL' : '—'}*`,
-    `*Fluid Balance : ${balance ? balance + ' mL' : '—'}*`,
+    ` *Total Output  : ${totalout ? totalout + ' mL' : '—'}*`,
+    ` *Fluid Balance : ${balance ? balance + ' mL' : '—'}*`,
     ` AB Girth      : ${abGirth || '—'}`
   ];
 
