@@ -454,8 +454,8 @@
         <input id="fluidbalance" readonly placeholder="0">
       </div>
       <div class="form-group">
-        <label for="AB Girth">AB Girth (cm)</label>
-        <input id="AB Girth" type="number" step="0.1" placeholder="0">
+        <label for="ab-girth">AB Girth (cm)</label>
+        <input id="ab-girth" type="number" step="0.1" placeholder="0">
       </div>
     </div>
   </div>
@@ -579,7 +579,7 @@ function generateReport() {
   const vomit    = E("vomit").value;
   const totalout = E("totalout").value;
   const balance  = E("fluidbalance").value;
-  const abGirth  = E("AB Girth").value;
+  const AbGirth  = E("ab-girth").value;
 
   const lines = [
     `*Name          : ${name}*`,
@@ -605,7 +605,7 @@ function generateReport() {
     ` Vomit         : ${vomit || 0} (episode)`,
     `*Total Output  : ${totalout ? totalout + ' mL' : '—'}*`,
     `*Fluid Balance : ${balance ? balance + ' mL' : '—'}*`,
-    ` AB Girth      : ${abGirth || '—'}`
+    ` AB Girth      : ${AbGirth || 0} cm`
   ];
 
   const reportText = lines.join("\n");
