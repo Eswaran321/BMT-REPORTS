@@ -529,7 +529,7 @@ function updateCalculations() {
 
   // Fluid Calculations
   const totalIn = n("ivf") + n("oral");
-  const totalOut = n("urine") + n("diarrhea") + n("vomit");
+  const totalOut = n("urine") ;
   const balance = totalIn - totalOut;
 
   E("totalin").value = totalIn ? totalIn : "";
@@ -596,8 +596,8 @@ function generateReport() {
     `• Oral                       : ${oral || 0} mL`,
     `• *Total Intake              : ${totalin ? totalin + ' mL' : '—'}*`,
     `• Urine                      : ${urine || 0} mL`,
-    `• Motion                     : ${diarrhea || 0} mL`,
-    `• Vomit                      : ${vomit || 0} mL`,
+    `• Motion                     : ${diarrhea || 0} (episode)`,
+    `• Vomit                      : ${vomit || 0} (episode)`,
     `• *Total Output              : ${totalout ? totalout + ' mL' : '—'}*`,
     `• *Fluid Balance             : ${balance ? balance + ' mL' : '—'}*`
   ];
